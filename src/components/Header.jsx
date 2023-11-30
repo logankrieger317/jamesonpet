@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Services', href: 'Services' },
   { name: 'About', href: 'About' },
   { name: 'Contact', href: 'Contact' },
-  { name: 'Book Now', href: 'Book' },
+  { name: 'Book Now', href: 'https://booking.moego.pet/go/?name=jamesonandcompanydoggrooming' },
 ]
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

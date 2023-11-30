@@ -12,6 +12,7 @@ import Large from './components/Large'
 import Long from './components/Long'
 import Short from './components/Short'
 import Addons from './components/Addons'
+import Faq from './components/Faq'
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/long" element={<Long />} />
           <Route path="/short" element={<Short />} />
           <Route path="/addons" element={<Addons />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
      </div>
     </>
