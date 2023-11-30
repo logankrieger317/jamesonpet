@@ -7,6 +7,11 @@ import Book from './components/Book'
 import Terms from './components/Terms'
 import Privacy from './components/Privacy'
 import DevTeam from './components/DevTeam'
+import Small from './components/Small'
+import Large from './components/Large'
+import Long from './components/Long'
+import Short from './components/Short'
+import Addons from './components/Addons'
 
 
 
@@ -29,7 +34,11 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/devteam" element={<DevTeam />} />
-          
+          <Route path="/small" element={<Small />} />
+          <Route path="/large" element={<Large />} />
+          <Route path="/long" element={<Long />} />
+          <Route path="/short" element={<Short />} />
+          <Route path="/addons" element={<Addons />} />
         </Routes>
      </div>
     </>

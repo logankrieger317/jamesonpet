@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import Carousel from './Carousel'
 import Swiper from 'swiper'
 import Map from './Map'
+import Peoples from './People'
 
 
 const tiers = [
@@ -53,7 +54,7 @@ export default function Home() {
     
 {/* Intro Block  */}
 
-     <div className="relative isolate px-6 pt-2 lg:px-8 bg-opacity-100  z-10 m-2 shadow-2xl ">
+     <div className="relative isolate px-6 pt-2 lg:px-8 bg-opacity-100  z-10 m-2 rounded-xl shadow-2xl ">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -85,9 +86,11 @@ export default function Home() {
         </div>
         </div>
 
+{/* Meet The Team */}
+    <Peoples/>
 {/* Pricing Block */}
     
-    <div className="bg-white py-24 sm:py-32 ">
+    <div className="bg-white py-24 sm:py-32 rounded-xl ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl sm:text-center">
           <h2 className="text-base font-semibold leading-7 text-red-600">Pricing</h2>
@@ -98,10 +101,10 @@ export default function Home() {
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">
           Prices to meet your needs, whether it's your first trim or you're a seasoned pro.
         </p>
-        <div className="mt-20 flow-root">
-          <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4">
+        <div className="mt-20 flow-root rounded-xl">
+          <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4 rounded-xl">
             {tiers.map((tier) => (
-              <div key={tier.id} className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-xl p-4">
+              <div key={tier.id} className="pt-16 lg:px-8 lg:pt-0 xl:px-14 rounded-xl shadow-2xl m-2 p-4">
                 <h3 id={tier.id} className="text-base font-semibold leading-7 text-gray-900">
                   {tier.name}
                 </h3>
