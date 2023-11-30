@@ -13,7 +13,8 @@ import Long from './components/Long'
 import Short from './components/Short'
 import Addons from './components/Addons'
 import Faq from './components/Faq'
-
+import Help from './components/Help'
+import Error from './components/Error'
 
 
 import './App.css'
@@ -41,6 +42,8 @@ function App() {
           <Route path="/short" element={<Short />} />
           <Route path="/addons" element={<Addons />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
      </div>
     </>

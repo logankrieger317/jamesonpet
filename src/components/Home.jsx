@@ -5,6 +5,7 @@ import Carousel from './Carousel'
 import Swiper from 'swiper'
 import Map from './Map'
 import Peoples from './People'
+import Reviews from './Reviews'
 
 
 const tiers = [
@@ -136,6 +137,7 @@ export default function Home() {
       </div>
     </div>
     <Map/>
+    <Reviews />
     <Footer />
     </>
   )
