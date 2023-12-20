@@ -6,27 +6,27 @@ const people = [
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
-  {
-    name: 'Michelle',
-    email: '',
-    role: 'Groomer',
-    imageUrl:
-      'https://st3.depositphotos.com/1011434/13157/i/450/depositphotos_131572502-stock-photo-happy-woman-smiling.jpg',
-  },
-  {
-    name: 'Katie',
-    email: '',
-    role: 'Groomer',
-    imageUrl:
-      'https://media.istockphoto.com/id/1301953681/photo/young-woman-student-outdoor-portrait.jpg?s=612x612&w=0&k=20&c=T4IhT-D5RgQqdn5oBz_utSRrsWQFqvkC-VtLjeEN8kg=',
-  },
-  {
-    name: 'John',
-    email: '',
-    role: 'Groomer',
-    imageUrl:
-      'https://cdn.create.vista.com/api/media/small/93999358/stock-photo-portrait-of-mid-adult-african-american-man',
-    },
+  // {
+  //   name: 'Michelle',
+  //   email: '',
+  //   role: 'Groomer',
+  //   imageUrl:
+  //     'https://st3.depositphotos.com/1011434/13157/i/450/depositphotos_131572502-stock-photo-happy-woman-smiling.jpg',
+  // },
+  // {
+  //   name: 'Katie',
+  //   email: '',
+  //   role: 'Groomer',
+  //   imageUrl:
+  //     'https://media.istockphoto.com/id/1301953681/photo/young-woman-student-outdoor-portrait.jpg?s=612x612&w=0&k=20&c=T4IhT-D5RgQqdn5oBz_utSRrsWQFqvkC-VtLjeEN8kg=',
+  // },
+  // {
+  //   name: 'John',
+  //   email: '',
+  //   role: 'Groomer',
+  //   imageUrl:
+  //     'https://cdn.create.vista.com/api/media/small/93999358/stock-photo-portrait-of-mid-adult-african-american-man',
+  //   },
   
   
 ]
