@@ -7,7 +7,7 @@ export default function DevTeam() {
         <>
         <div>
         <Header />
-            
+            <h1> <a href="https://www.logankrieger.com"> Day 13 Laboratories </a></h1>
         <Footer />
         </div>
         </>
