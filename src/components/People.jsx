@@ -1,6 +1,6 @@
 const people = [
   {
-    name: 'Haley',
+    name: 'Hailey',
     email: '',
     role: 'Founder / Head Groomer',
     imageUrl:

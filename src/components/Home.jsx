@@ -12,7 +12,7 @@ const tiers = [
   {
     name: 'Grooming',
     id: 'tier-basic',
-    href: '#',
+    href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
     price: { starting: '$55', addons: '$100' },
     description: 'Everything to fully pamper your pet!',
     features: [['Trim',', ' ,'Bath ',', ' ,'Blow Dry '], ['Nail Trim',', ' ,'Ear Cleaning '], ['And More...'] ],
@@ -21,7 +21,7 @@ const tiers = [
   {
     name: 'Bath Only',
     id: 'tier-essential',
-    href: '#',
+    href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
     price: { starting: '$30', addons: '$100' },
     description: 'A relaxing and enjoyable wash to keep your pet looking thier best!',
     features: [['Small Short Coat'],['Large Long Coat'],['And More...']],
@@ -29,7 +29,7 @@ const tiers = [
   {
     name: 'Walk In',
     id: 'tier-growth',
-    href: '#',
+    href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
     price: { starting: '$10', addons: '$200' },
     description: 'Face, Feet, and Fanny trims to keep your pet looking sharp!',
     features: [
@@ -74,7 +74,7 @@ export default function Home() {
               Welcome to Jameson & Company Dog Grooming where your pet is truly loved! At Jameson & Company our slogan is, In Dog We Trust! We are passionate about work and excited to meet your pets. Our goal is to provide a stress-free, comfortable experience so that all pups leave Jameson & Company well-groomed and feeling happy. Thank you for choosing us for your grooming needs.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a href="https://booking.moego.pet/go/?name=jamesonandcompanydoggrooming"
+              <a href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
                 className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 Book Now!

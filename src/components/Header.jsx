@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Services', href: 'Services' },
   { name: 'About', href: 'About' },
   { name: 'Contact', href: 'Contact' },
-  { name: 'Book Now', href: 'https://booking.moego.pet/go/?name=jamesonandcompanydoggrooming' },
+  { name: 'Book Now', href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming' },
   { name: 'FAQ', href: 'Faq' },
   { name: 'Help', href: 'Help' },
 ]
