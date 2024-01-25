@@ -1,8 +1,6 @@
-// import { CheckCircleIcon } from '@heroicons/react/20/solid'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Carousel from './Carousel'
-import Swiper from 'swiper'
 import Map from './Map'
 import Peoples from './People'
 import Reviews from './Reviews'
@@ -10,32 +8,32 @@ import Reviews from './Reviews'
 
 const tiers = [
   {
-    name: 'Grooming',
+    name: 'Full Service Grooming',
     id: 'tier-basic',
     href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
-    price: { starting: '$55', addons: '$100' },
+    price: { starting: '$35', addons: '$100' },
     description: 'Everything to fully pamper your pet!',
-    features: [['Trim',', ' ,'Bath ',', ' ,'Blow Dry '], ['Nail Trim',', ' ,'Ear Cleaning '], ['And More...'] ],
+    features: [['Includes:',' ','Bath',', ' ,'Brush ',', ' ,'Ear Cleaning '], ['Nail Trim',', ' ,'Ear Cleaning '], ['and Gland Expression...'] ],
                 
   },
   {
     name: 'Bath Only',
     id: 'tier-essential',
     href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
-    price: { starting: '$30', addons: '$100' },
+    price: { starting: '$65', addons: '$100' },
     description: 'A relaxing and enjoyable wash to keep your pet looking thier best!',
-    features: [['Small Short Coat'],['Large Long Coat'],['And More...']],
+    features: [['Small Short Coat'],['Large Long Coat'],['And Every Coat In Between']],
   },
   {
     name: 'Walk In',
     id: 'tier-growth',
     href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming',
-    price: { starting: '$10', addons: '$200' },
+    price: { starting: '$10', addons: '$60' },
     description: 'Face, Feet, and Fanny trims to keep your pet looking sharp!',
     features: [
-        ['Face Trim'],
-        ['Feet Trim'],
-        ['Fanny Wash'],
+        ['Nail Grind'],
+        ['Nail Trim'],
+        ['Ear Cleaning'],
         ['And More...'],
     ],
   },

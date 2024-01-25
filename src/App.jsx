@@ -7,10 +7,10 @@ import Book from './components/Book'
 import Terms from './components/Terms'
 import Privacy from './components/Privacy'
 import DevTeam from './components/DevTeam'
-import Small from './components/Small'
+import Short from './components/Short'
 import Large from './components/Large'
 import Long from './components/Long'
-import Short from './components/Short'
+import To14 from './components/To14'
 import Addons from './components/Addons'
 import Faq from './components/Faq'
 import Help from './components/Help'
@@ -36,10 +36,10 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/devteam" element={<DevTeam />} />
-          <Route path="/small" element={<Small />} />
+          <Route path="/To14" element={<To14 />} />
           <Route path="/large" element={<Large />} />
           <Route path="/long" element={<Long />} />
-          <Route path="/short" element={<Short />} />
+          <Route path="/Short" element={<Short />} />
           <Route path="/addons" element={<Addons />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/help" element={<Help />} />
