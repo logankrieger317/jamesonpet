@@ -22,19 +22,29 @@ export default function Carousel() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        
-        <SwiperSlide><img src='poodle.jpeg' ></img></SwiperSlide>
-        <SwiperSlide><img src='https://theuniversityanimalclinic.com/wp-content/uploads/2020/12/toy-poodle.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://www.cesarsway.com/wp-content/uploads/2019/06/AdobeStock_56951807-1024x681.jpeg.webp'></img></SwiperSlide>
-        <SwiperSlide><img src='https://assets.website-files.com/611beecc2a6b93312a409b6d/61f87a0a37452802abca4ad3_All%20footage%20.01_26_03_19.Still003.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1000w,f_auto,q_auto:eco,dpr_2.0/newscms/2018_15/1331283/dog-groomer-today-180411-main-art.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://www.animalfunfacts.net/images/stories/pets/dogs/pomeranian_dog_groomer_l.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://www.hunterslodge.org.uk/wp-content/uploads/2022/03/dreamstime_s_89604172.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://lirp.cdn-website.com/9c264ad8/dms3rep/multi/opt/Groom2-4560x3648-1920w.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='https://lirp.cdn-website.com/9c264ad8/dms3rep/multi/opt/Gracie-3000x2400-1920w.jpg'></img></SwiperSlide>
-        
+        <div className="swiper-wrapper">
+        <SwiperSlide><img src='../src/Images/Malley.jpg' alt='dog1'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3288.jpg' alt='dog2'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3166.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_1671.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_1813.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2254.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2318.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2625.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2650.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2825.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_2994.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3007.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3027.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3108.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3166.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/IMG_3288.jpg'></img></SwiperSlide>
+        <SwiperSlide><img src='../src/Images/Malley.jpg'></img></SwiperSlide>
+
+        </div>
       </Swiper>
-      </div>
+      
+    </div>
     </>
   );
 }
