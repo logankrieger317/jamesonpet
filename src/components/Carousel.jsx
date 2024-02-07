@@ -23,9 +23,7 @@ export default function Carousel() {
         className="mySwiper"
       >
         <div className="swiper-wrapper">
-        <SwiperSlide><img src='../src/Images/Malley.jpg' alt='dog1'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_3288.jpg' alt='dog2'></img></SwiperSlide>
-        <SwiperSlide><img src='../src/Images/IMG_3166.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_1671.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_1813.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_2254.jpg'></img></SwiperSlide>
@@ -36,9 +34,6 @@ export default function Carousel() {
         <SwiperSlide><img src='../src/Images/IMG_2994.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_3007.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/IMG_3027.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='../src/Images/IMG_3108.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='../src/Images/IMG_3166.jpg'></img></SwiperSlide>
-        <SwiperSlide><img src='../src/Images/IMG_3288.jpg'></img></SwiperSlide>
         <SwiperSlide><img src='../src/Images/Malley.jpg'></img></SwiperSlide>
 
         </div>

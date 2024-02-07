@@ -3,7 +3,7 @@ import Footer from "./Footer";
 
 
 const services = [
-  { name: 'Deluxe', href:'Book', description: 'Full Wash, Nail Trim', price: '$55' },
+  { name: 'Deluxe', description: 'Full Wash, Nail Trim', price: '$55' },
   { name: 'Furminator', description: 'Deshedding, Shampoo and Conditioner', price: '$30' },
   { name: 'Pawdicure', description: 'Nail Trim, Paw Massage', price: '$25' },
   { name: 'Puppy Package', description: 'Gentle Bath, Brushing, Ear Cleaning', price: '$40' },
