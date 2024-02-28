@@ -3,13 +3,13 @@ import { useState } from 'react'
 
 
 const navigation = [
-  { name: 'Home', href: 'Home' },
-  { name: 'Services', href: 'Services' },
-  { name: 'About', href: 'About' },
-  { name: 'Contact', href: 'Contact' },
+  // { name: 'Home', href: 'Home' },
+  // { name: 'Services', href: 'Services' },
+  // { name: 'About', href: 'About' },
+  // { name: 'Contact', href: 'Contact' },
   { name: 'Book Now', href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming' },
-  { name: 'FAQ', href: 'Faq' },
-  { name: 'Help', href: 'Help' },
+  // { name: 'FAQ', href: 'Faq' },
+  // { name: 'Help', href: 'Help' },
 ]
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -33,9 +33,9 @@ export default function Header() {
 
   </div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <a href="Home" className="-m-1.5 p-1.5">
+        <a href="https://jcoatx.com" className="-m-1.5 p-1.5">
           <span className="sr-only">Jameson & Company</span>
-          <img className="h-8 w-auto rounded-full" src="Logo.png" alt="" />
+          <img className="h-8 w-auto rounded-full" src="Logo.png" alt="logo" />
         </a>
           <h1 className='font-bold text-2xl'> Jameson & Company</h1>
         <div className="flex lg:hidden">
