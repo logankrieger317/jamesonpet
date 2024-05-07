@@ -1,14 +1,12 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Carousel from "./Carousel";
-import Map from "./Map";
-import Peoples from "./People";
-import Reviews from "./Reviews";
-// import InfoModal from './InfoModal'
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import Header from "../components/Header";
+import Carousel from "../components/Carousel";
+import Peoples from "../components/People";
+import Reviews from "../components/Reviews";
+import Footer from "./Footer";
+import Map from "../components/Map";
 
 const tiers = [
   {
@@ -29,7 +27,7 @@ const tiers = [
     href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$35", addons: "$100" },
     description:
-      "A relaxing and enjoyable wash to keep your pet looking thier best!",
+      "A relaxing and enjoyable wash to keep your pet looking their best!",
     features: [
       ["Includes:", "Haircut", ",", "Bath", ", ", "Brush", ","],
       ["Nail Trim", ", ", "Ear Cleaning "],
@@ -51,17 +49,10 @@ const tiers = [
   },
 ];
 
-const handleEmailClick = (e) => {
-  e.preventDefault(); // Prevent the default link behavior
-  window.location.href = "mailto:Jamesongrooming@gmail.com"; // Open the default email client
-};
-const handleCallClick = (e) => {
-  e.preventDefault(); // Prevent the default link behavior
-  window.location.href = "tel:7372637002"; // Open the default phone app
-};
-
-export default function Home() {
+const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     setIsVisible(true);
@@ -73,104 +64,114 @@ export default function Home() {
     }
   };
 
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:Jamesongrooming@gmail.com";
+  };
+
+  const handleCallClick = (e) => {
+    e.preventDefault();
+    window.location.href = "tel:7372637002";
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById("inline-email");
+    const email = emailInput.value;
+    const subject = "Question from Jameson & Company Dog Grooming Website";
+    const body = "Please fill in your question here.";
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+  };
+
   return (
-    <div>
+  <div>
+    <div
+      className="fixed bottom-4 right-4 cursor-pointer"
+      onClick={() => setIsVisible(true)}
+    >
+      <FontAwesomeIcon icon={faCommentDots} size="2x" />
+    </div>
+    {isVisible && (
       <div
-        className="fixed bottom-4 right-4 cursor-pointer"
-        onClick={() => setIsVisible(true)}
+        className="fixed inset-0 flex items-center justify-center z-50 modal"
+        onClick={handleClickOutside}
       >
-        <FontAwesomeIcon icon={faCommentDots} size="2x" />
-      </div>
-
-      {isVisible && (
-        <div
-          className="fixed inset-0 flex items-center justify-center z-50 modal"
-          onClick={handleClickOutside}
-        >
-          <div className="w-3/4 h-3/4 flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-white bg-opacity-100 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4">
-            <h2 className="text-center text-2xl font-bold">Welcome!</h2>
-            <p className="text-center">
-              If you are a new customer and have any questions, please fill out
-              the form below:
-            </p>
-            <form className="w-full max-w-sm flex flex-col items-center">
-              <div className="md:flex md:items-center mb-6">
-                <div className="md:w-full">
-                  <label
-                    className="block text-gray-500 font-bold md:text-center mb-1 md:mb-0 pr-4"
-                    htmlFor="inline-email"
-                  >
-                    Email
-                  </label>
-                  <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
-                    id="inline-email"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <div className="md:flex md:items-center mb-6 w:100%">
-                <div className="md:w-full">
-                  <label
-                    className="block text-gray-500 font-bold md:text-center mb-1 md:mb-0 pr-4"
-                    htmlFor="inline-question"
-                  >
-                    Question
-                  </label>
-                  <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500 width:100%"
-                    id="inline-question"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <div className="md:flex md:items-center flex-col justify-around">
-                <button
-                  className="shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
-                  type="button"
-                >
-                  Submit
-                </button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                  Book Now
-                </button>
-              </div>
-            </form>
-            <p className="text-center">Or contact us directly at:</p>
-            <p className="text-center">
-              <a
-                href="mailto:Jamesongrooming@gmail.com"
-                onClick={handleEmailClick}
+        <div className="w-full max-w-md flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-gray-900 bg-opacity-60 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4 text-white">
+          <h2 className="text-center text-lg lg:text-2xl font-bold">Welcome!</h2>
+          <p className="text-center text-sm lg:text-base">
+            If you have any questions, press the button to send an email with your question!
+          </p>
+          <form className="w-full flex flex-col items-center space-y-4">
+            <div className="w-full flex flex-col items-center">
+              <label
+                className="block text-white font-bold text-sm lg:text-base mb-1 md:mb-0"
+                htmlFor="inline-email"
               >
-                Email: Jamesongrooming@gmail.com
+                Email
+              </label>
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+                id="inline-email"
+                type="text"
+              />
+            </div>
+            <div className="w-full flex flex-col items-center">
+              <button
+                className="w-full bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
+                type="button"
+                onClick={sendEmail}
+              >
+                Submit
+              </button>
+              </div>
+              <div className="w-full flex flex-col text-center items-center">
+              <a
+                href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
+                className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+              >
+                Book Now
               </a>
-            </p>
-
-            <p className="text-center">
-              <a href="tel:7372637002" onClick={handleCallClick}>
-                Phone: (737) 263-7002
-              </a>
-            </p>
-          </div>
+            </div>
+          </form>
+          <p className="text-center text-sm lg:text-base">
+            Or contact us directly at:
+          </p>
+          <p className="text-center text-sm lg:text-base">
+            <a
+              href="mailto:Jamesongrooming@gmail.com"
+              onClick={handleEmailClick}
+            >
+              Email: Jamesongrooming@gmail.com
+            </a>
+          </p>
+          <p className="text-center text-sm lg:text-base">
+            <a href="tel:7372637002" onClick={handleCallClick}>
+              Phone: (737) 263-7002
+            </a>
+          </p>
         </div>
-      )}
+      </div>
+    )}{" "}
+    <div
+      className="fixed bottom-4 right-4 cursor-pointer z-50"
+      onClick={() => setIsVisible(true)}
+    >
+      <FontAwesomeIcon icon={faCommentDots} size="2x" />
+    </div>
+    <div className={`${isVisible ? "filter blur-sm" : ""}`}>
+      <Header />
 
-      <div
-        className="fixed bottom-4 right-4 cursor-pointer"
-        onClick={() => setIsVisible(true)}
-      >
-        <FontAwesomeIcon icon={faCommentDots} size="2x" />
+      {/* Photo Section */}
+      <div className="relative mt-6 flex align-middle justify-center z-10 shadow-2xl ">
+        <div className=" max-w-xl max-h-xl ">
+          <Carousel />
+        </div>
       </div>
 
-      <div className={`${isVisible ? "filter blur-sm" : ""}`}>
-        <Header />
-
-        {/* Photo Section */}
-        <div className="relative mt-6 flex align-middle justify-center z-10 shadow-2xl ">
-          <div className=" max-w-xl max-h-xl ">
-            <Carousel />
-          </div>
-        </div>
+      {/* Intro Block  */}
 
         {/* Intro Block  */}
 
@@ -232,6 +233,7 @@ export default function Home() {
             </p>
             <div className="mt-20 flow-root rounded-xl">
               <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4 rounded-xl">
+                {/* Tiers Section */}
                 {tiers.map((tier) => (
                   <div
                     key={tier.id}
@@ -290,4 +292,5 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+export default Home;
