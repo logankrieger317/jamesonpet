@@ -18,7 +18,7 @@ const tiers = [
     price: { starting: "$65", addons: "$100" },
     description: "Everything to fully pamper your pet!",
     features: [
-      ["Includes:", " ", "Bath", ", ", "Brush", ","],
+      ["Includes:", "Haircut", ",", "Bath", ", ", "Brush", ","],
       ["Nail Trim", ", ", "Ear Cleaning "],
       ["and Gland Expression..."],
     ],
@@ -31,9 +31,9 @@ const tiers = [
     description:
       "A relaxing and enjoyable wash to keep your pet looking thier best!",
     features: [
-      ["Small Short Coat"],
-      ["Large Long Coat"],
-      ["And Every Coat In Between"],
+      ["Includes:", "Haircut", ",", "Bath", ", ", "Brush", ","],
+      ["Nail Trim", ", ", "Ear Cleaning "],
+      ["and Gland Expression..."],
     ],
   },
   {
@@ -50,6 +50,15 @@ const tiers = [
     ],
   },
 ];
+
+const handleEmailClick = (e) => {
+  e.preventDefault(); // Prevent the default link behavior
+  window.location.href = "mailto:Jamesongrooming@gmail.com"; // Open the default email client
+};
+const handleCallClick = (e) => {
+  e.preventDefault(); // Prevent the default link behavior
+  window.location.href = "tel:7372637002"; // Open the default phone app
+};
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -74,7 +83,6 @@ export default function Home() {
       </div>
 
       {isVisible && (
-        
         <div
           className="fixed inset-0 flex items-center justify-center z-50 modal"
           onClick={handleClickOutside}
@@ -95,13 +103,13 @@ export default function Home() {
                     Email
                   </label>
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
                     id="inline-email"
                     type="text"
                   />
                 </div>
               </div>
-              <div className="md:flex md:items-center mb-6">
+              <div className="md:flex md:items-center mb-6 w:100%">
                 <div className="md:w-full">
                   <label
                     className="block text-gray-500 font-bold md:text-center mb-1 md:mb-0 pr-4"
@@ -110,7 +118,7 @@ export default function Home() {
                     Question
                   </label>
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500 width:100%"
                     id="inline-question"
                     type="text"
                   />
@@ -118,24 +126,39 @@ export default function Home() {
               </div>
               <div className="md:flex md:items-center flex-col justify-around">
                 <button
-                  className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
+                  className="shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
                   type="button"
                 >
                   Submit
                 </button>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                   Book Now
                 </button>
               </div>
             </form>
             <p className="text-center">Or contact us directly at:</p>
-            <p className="text-center">Email: example@example.com</p>
-            <p className="text-center">Phone: (123) 456-7890</p>
+            <p className="text-center">
+              <a
+                href="mailto:Jamesongrooming@gmail.com"
+                onClick={handleEmailClick}
+              >
+                Email: Jamesongrooming@gmail.com
+              </a>
+            </p>
+
+            <p className="text-center">
+              <a href="tel:7372637002" onClick={handleCallClick}>
+                Phone: (737) 263-7002
+              </a>
+            </p>
           </div>
         </div>
       )}
 
-       <div className="fixed bottom-4 right-4 cursor-pointer" onClick={() => setIsVisible(true)}>
+      <div
+        className="fixed bottom-4 right-4 cursor-pointer"
+        onClick={() => setIsVisible(true)}
+      >
         <FontAwesomeIcon icon={faCommentDots} size="2x" />
       </div>
 
