@@ -16,7 +16,7 @@ const tiers = [
     price: { starting: "$65", addons: "$100" },
     description: "Everything to fully pamper your pet!",
     features: [
-      ["Includes:", "Haircut", ",", "Bath", ", ", "Brush", ","],
+      ["Includes: ", "Haircut", ", ", "Bath", ", ", "Brush", ", "],
       ["Nail Trim", ", ", "Ear Cleaning "],
       ["and Gland Expression..."],
     ],
@@ -29,7 +29,7 @@ const tiers = [
     description:
       "A relaxing and enjoyable wash to keep your pet looking their best!",
     features: [
-      ["Includes:", "Haircut", ",", "Bath", ", ", "Brush", ","],
+      ["Includes: ", "Haircut", ", ", "Bath", ", ", "Brush", ", "],
       ["Nail Trim", ", ", "Ear Cleaning "],
       ["and Gland Expression..."],
     ],
@@ -202,12 +202,12 @@ const Home = () => {
                 >
                   Book Now!
                 </a>
-                <a
+                {/* <a
                   href="Services"
                   className="text-sm font-semibold leading-6 text-gray-900"
                 >
                   Learn more <span aria-hidden="true">→</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
