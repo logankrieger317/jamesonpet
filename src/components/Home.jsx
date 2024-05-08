@@ -12,7 +12,7 @@ const tiers = [
   {
     name: "Full Service Grooming",
     id: "tier-basic",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$65", addons: "$100" },
     description: "Everything to fully pamper your pet!",
     features: [
@@ -24,7 +24,7 @@ const tiers = [
   {
     name: "Bath Only",
     id: "tier-essential",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$35", addons: "$100" },
     description:
       "A relaxing and enjoyable wash to keep your pet looking their best!",
@@ -37,7 +37,7 @@ const tiers = [
   {
     name: "Walk In",
     id: "tier-growth",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$10", addons: "$60" },
     description: "Face, Feet, and Fanny trims to keep your pet looking sharp!",
     features: [
