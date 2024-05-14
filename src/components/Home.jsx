@@ -55,7 +55,7 @@ const Home = () => {
   const [question, setQuestion] = useState("");
 
   useEffect(() => {
-    setIsVisible(true);
+    setIsVisible(false);
   }, []);
 
   const handleClickOutside = (event) => {
