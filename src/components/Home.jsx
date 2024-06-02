@@ -7,6 +7,10 @@ import Peoples from "../components/People";
 import Reviews from "../components/Reviews";
 import Footer from "./Footer";
 import Map from "../components/Map";
+// import Modal from 'react-modal';
+
+
+
 
 const tiers = [
   {
@@ -54,8 +58,9 @@ const Home = () => {
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
 
+  // Toggle on window load modal show VS    
   useEffect(() => {
-    setIsVisible(false);
+    setIsVisible(true);
   }, []);
 
   const handleClickOutside = (event) => {
@@ -86,82 +91,84 @@ const Home = () => {
     window.location.href = mailtoUrl;
   };
 
+
+
+
   return (
+    <>
   <div>
-    <div
-      className="fixed bottom-4 right-4 cursor-pointer"
-      onClick={() => setIsVisible(true)}
-    >
-      <FontAwesomeIcon icon={faCommentDots} size="2x" />
-    </div>
-    {isVisible && (
-      <div
-        className="fixed inset-0 flex items-center justify-center z-50 modal"
-        onClick={handleClickOutside}
-      >
-        <div className="w-full max-w-md flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-gray-900 bg-opacity-60 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4 text-white">
-          <h2 className="text-center text-lg lg:text-2xl font-bold">Welcome!</h2>
-          <p className="text-center text-sm lg:text-base">
-            If you have any questions, press the button to send an email with your question!
-          </p>
-          <form className="w-full flex flex-col items-center space-y-4">
-            <div className="w-full flex flex-col items-center">
-              <label
-                className="block text-white font-bold text-sm lg:text-base mb-1 md:mb-0"
-                htmlFor="inline-email"
-              >
-                Email
-              </label>
-              <input
-                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
-                id="inline-email"
-                type="text"
-              />
-            </div>
-            <div className="w-full flex flex-col items-center">
-              <button
-                className="w-full bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
-                type="button"
-                onClick={sendEmail}
-              >
-                Submit
-              </button>
-              </div>
-              <div className="w-full flex flex-col text-center items-center">
-              <a
-                href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
-                className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
-              >
-                Book Now
-              </a>
-            </div>
-          </form>
-          <p className="text-center text-sm lg:text-base">
-            Or contact us directly at:
-          </p>
-          <p className="text-center text-sm lg:text-base">
-            <a
-              href="mailto:Jamesongrooming@gmail.com"
-              onClick={handleEmailClick}
-            >
-              Email: Jamesongrooming@gmail.com
-            </a>
-          </p>
-          <p className="text-center text-sm lg:text-base">
-            <a href="tel:7372637002" onClick={handleCallClick}>
-              Phone: (737) 263-7002
-            </a>
-          </p>
-        </div>
-      </div>
-    )}{" "}
-    <div
-      className="fixed bottom-4 right-4 cursor-pointer z-50"
-      onClick={() => setIsVisible(true)}
-    >
-      <FontAwesomeIcon icon={faCommentDots} size="2x" />
-    </div>
-    <div className={`${isVisible ? "filter blur-sm" : ""}`}>
+{/* Info Modal */}
+{isVisible && (
+<div
+className="fixed inset-0 flex items-center justify-center z-50 modal"
+onClick={handleClickOutside}
+>
+<div className="w-full max-w-md flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-gray-900 bg-opacity-90 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4 text-white">
+<h2 className="text-center text-lg lg:text-2xl font-bold">Welcome!</h2>
+<h1 className="text-xl border-2 border-width-2 border-red-600 p-0.5">I will be away from the grooming truck with limited access to phone and email until<strong> June 10th</strong>. I will respond to all questions and booking confrimations upon my return.</h1>
+<p className="text-center text-sm lg:text-base">
+If you have any questions, press the button to send an email with your question!
+</p>
+<form className="w-full flex flex-col items-center space-y-4">
+<div className="w-full flex flex-col items-center">
+<label
+className="block text-white font-bold text-sm lg:text-base mb-1 md:mb-0"
+htmlFor="inline-email"
+>
+Email
+</label>
+<input
+className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+id="inline-email"
+type="text"
+/>
+</div>
+<div className="w-full flex flex-col items-center">
+<button
+className="w-full bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
+type="button"
+onClick={sendEmail}
+>
+Submit
+</button>
+</div>
+<div className="w-full flex flex-col text-center items-center">
+<a
+href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
+className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+>
+Book Now
+</a>
+</div>
+</form>
+<p className="text-center text-sm lg:text-base">
+Or contact us directly at:
+</p>
+<p className="text-center text-sm lg:text-base">
+<a
+href="mailto:Jamesongrooming@gmail.com"
+onClick={handleEmailClick}
+>
+Email: Jamesongrooming@gmail.com
+</a>
+</p>
+<p className="text-center text-sm lg:text-base">
+<a href="tel:7372637002" onClick={handleCallClick}>
+Phone: (737) 263-7002
+</a>
+</p>
+</div>
+</div>
+)}
+<div
+className="fixed bottom-4 right-4 cursor-pointer z-50"
+onClick={() => setIsVisible(true)}
+>
+<FontAwesomeIcon icon={faCommentDots} size="2x" />
+</div>
+<div className={`${isVisible ? "filter blur-sm" : ""}`}>
+</div>
+
       <Header />
 
       {/* Photo Section */}
@@ -171,7 +178,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Intro Block  */}
+
 
         {/* Intro Block  */}
 
@@ -290,7 +297,8 @@ const Home = () => {
         <Reviews />
         <Footer />
       </div>
-    </div>
+    
+    </>
   );
 };
 export default Home;
