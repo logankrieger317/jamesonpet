@@ -60,7 +60,7 @@ const Home = () => {
 
   // Toggle on window load modal show VS    
   useEffect(() => {
-    setIsVisible(true);
+    setIsVisible(false);
   }, []);
 
   const handleClickOutside = (event) => {
@@ -105,7 +105,9 @@ onClick={handleClickOutside}
 >
 <div className="w-full max-w-md flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-gray-900 bg-opacity-90 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4 text-white">
 <h2 className="text-center text-lg lg:text-2xl font-bold">Welcome!</h2>
-<h1 className="text-xl border-2 border-width-2 border-red-600 p-0.5">I will be away from the grooming truck with limited access to phone and email until<strong> June 10th</strong>. I will respond to all questions and booking confrimations upon my return.</h1>
+
+{/* Modal OOO Message Leaving comments to toggle on later */}
+{/* <h1 className="text-xl border-2 border-width-2 border-red-600 p-0.5">I will be away from the grooming truck with limited access to phone and email until<strong> June 10th</strong>. I will respond to all questions and booking confrimations upon my return.</h1> */}
 <p className="text-center text-sm lg:text-base">
 If you have any questions, press the button to send an email with your question!
 </p>
