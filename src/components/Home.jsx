@@ -33,7 +33,7 @@ const tiers = [
     description:
       "A relaxing and enjoyable wash to keep your pet looking their best!",
     features: [
-      ["Includes: ", "Haircut", ", ", "Bath", ", ", "Brush", ", "],
+      ["Includes: ",  "Bath", ", ", "Brush", ", "],
       ["Nail Trim", ", ", "Ear Cleaning "],
       ["and Gland Expression..."],
     ],
