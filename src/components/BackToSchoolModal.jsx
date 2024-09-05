@@ -4,16 +4,31 @@ import { Modal, Box, Typography, Button } from "@mui/material";
 const BackToSchoolModal = () => {
   const [open, setOpen] = useState(false);
 
+  // Show modal on first load unless the modal was closed
   useEffect(() => {
     const modalClosed = localStorage.getItem("modalClosed");
     if (!modalClosed) {
-      setOpen(true); // Show the modal if it hasn't been closed
+      setOpen(true);
     }
+  }, []);
+
+  // Listen for page refresh or close and clear localStorage
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("modalClosed");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
 
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem("modalClosed", "true"); // Set the flag in localStorage
+    localStorage.setItem("modalClosed", "true"); // Set the flag when the modal is closed
   };
 
   const style = {
