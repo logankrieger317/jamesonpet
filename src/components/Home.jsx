@@ -7,7 +7,7 @@ import Peoples from "../components/People";
 import Reviews from "../components/Reviews";
 import Footer from "./Footer";
 import Map from "../components/Map";
-// import Modal from 'react-modal';
+import BackToSchoolModal from "./BackToSchoolModal";
 
 
 
@@ -55,17 +55,20 @@ const tiers = [
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isBackToSchoolVisible, setIsBackToSchoolVisible]= useState(false)
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
 
   // Toggle on window load modal show VS    
   useEffect(() => {
     setIsVisible(false);
+    setIsBackToSchoolVisible(false);
   }, []);
 
   const handleClickOutside = (event) => {
     if (event.target.className.includes("modal")) {
       setIsVisible(false);
+      setIsBackToSchoolVisible(false);
     }
   };
 
@@ -96,6 +99,7 @@ const Home = () => {
 
   return (
     <>
+    <BackToSchoolModal/>
   <div>
 {/* Info Modal */}
 {isVisible && (
