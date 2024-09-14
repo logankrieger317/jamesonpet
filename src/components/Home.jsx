@@ -8,6 +8,7 @@ import Reviews from "../components/Reviews";
 import Footer from "./Footer";
 import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
+import UserInfoModal from "./UserInfoModal";
 
 
 
@@ -16,7 +17,7 @@ const tiers = [
   {
     name: "Full Service Grooming",
     id: "tier-basic",
-    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$65", addons: "$100" },
     description: "Everything to fully pamper your pet!",
     features: [
@@ -28,7 +29,7 @@ const tiers = [
   {
     name: "Bath Only",
     id: "tier-essential",
-    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$35", addons: "$100" },
     description:
       "A relaxing and enjoyable wash to keep your pet looking their best!",
@@ -41,7 +42,7 @@ const tiers = [
   {
     name: "Walk In",
     id: "tier-growth",
-    href: "https://www.booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
     price: { starting: "$10", addons: "$60" },
     description: "Face, Feet, and Fanny trims to keep your pet looking sharp!",
     features: [
@@ -99,7 +100,8 @@ const Home = () => {
 
   return (
     <>
-    <BackToSchoolModal/>
+    {/* <BackToSchoolModal/> */}
+    <UserInfoModal/>
   <div>
 {/* Info Modal */}
 {isVisible && (
@@ -237,7 +239,7 @@ onClick={() => setIsVisible(true)}
                 Pricing
               </h2>
               <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                Choose the right package for&nbsp;you
+                Choose the right package for you
               </p>
             </div>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">
