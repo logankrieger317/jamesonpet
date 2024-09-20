@@ -41,7 +41,6 @@ const UserInfoModal = () => {
   try {
     console.log("Sending data:", userData);
 
-    // Update the URL to your Heroku app's URL
     const response = await fetch("https://jamesoncoatxbackend-f141db66d6c7.herokuapp.com/api/user-info", {
       method: "POST",
       headers: {
