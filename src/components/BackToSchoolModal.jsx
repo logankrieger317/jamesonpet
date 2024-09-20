@@ -58,11 +58,10 @@ const BackToSchoolModal = () => {
           </Typography>
           <Typography id="walk-in-modal-description" sx={{ mt: 2 }}>
             🐶 Is your pup ready to look their best for the new school year? <br />
-            Our walk-in grooming service has you covered! Whether it's a quick trim
-            or a full pampering session, we'll have your furry friend looking A+ in no time. 
+            Our walk-in grooming service has you covered!  We'll have your furry friend looking A+ in no time. 
           </Typography>
           <Typography sx={{ mt: 2, mb: 2 }}>
-            Pop in today for our "Face, Feet, and Fanny" trims—because your dog deserves to
+            Pop in today for our "Face, Feet, and Fanny" trims or a nail trim—because your dog deserves to
             strut into the season like the cool pup they are!
           </Typography>
           <Button

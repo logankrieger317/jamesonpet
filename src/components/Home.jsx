@@ -100,8 +100,8 @@ const Home = () => {
 
   return (
     <>
-    {/* <BackToSchoolModal/> */}
-    <UserInfoModal/>
+    <BackToSchoolModal/>
+    {/* <UserInfoModal/> */}
   <div>
 {/* Info Modal */}
 {isVisible && (

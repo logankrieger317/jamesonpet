@@ -34,30 +34,36 @@ const UserInfoModal = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const userData = { name, phone, email };
+  const userData = { name, phone, email };
 
-    try {
-      const response = await fetch("http://localhost:2500/api/user-info", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+  try {
+    console.log("Sending data:", userData);
 
-      if (response.ok) {
-        alert("Information submitted successfully!");
-        handleClose();
-      } else {
-        alert("Failed to submit information.");
-      }
-    } catch (error) {
-      console.error("Error submitting information:", error);
-      alert("An error occurred. Please try again.");
+    // Update the URL to your Heroku app's URL
+    const response = await fetch("https://jamesoncoatxbackend-f141db66d6c7.herokuapp.com/api/user-info", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const responseData = await response.json();
+    console.log("Response:", responseData);
+
+    if (response.ok) {
+      alert("Information submitted successfully!");
+      handleClose();
+    } else {
+      alert(`Failed to submit information: ${responseData.message}`);
     }
-  };
+  } catch (error) {
+    console.error("Error submitting information:", error);
+    alert(`An error occurred: ${error.message}`);
+  }
+};
 
   return (
     <ThemeProvider theme={theme}>
@@ -86,7 +92,7 @@ const UserInfoModal = () => {
               Paw-some Raffle Alert!
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Hey fur-parent! Want a chance to pamper your pooch? Enter our raffle for a chance to win a prize!! Just submit your info below and we'll email the lucky winners. It's time to get those tails wagging!
+              Attention all paw-rents! 🐾 Ready for a tail-wagging deal? Enter your info below to enter our raffle for a chance to fetch a whopping <Typography component="span" sx={{ fontWeight: 'bold',  fontSize: 'calc(1em + 2px)' }}>50% off your next full grooming service!</Typography> It's like winning the doggy lottery! Don't let this op-paw-tunity slip through your paws - fill out the form and let's get your furry friend looking fabulous for half the price! Woof-tastic savings await!
             </Typography>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
