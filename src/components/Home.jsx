@@ -55,6 +55,7 @@ const tiers = [
 ];
 
 const Home = () => {
+  const [showUserInfoModal, setShowUserInfoModal] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [isBackToSchoolVisible, setIsBackToSchoolVisible]= useState(false)
   const [email, setEmail] = useState("");
@@ -64,6 +65,7 @@ const Home = () => {
   useEffect(() => {
     setIsVisible(false);
     setIsBackToSchoolVisible(false);
+    setShowUserInfoModal(true);
   }, []);
 
   const handleClickOutside = (event) => {
@@ -100,8 +102,8 @@ const Home = () => {
 
   return (
     <>
-    <BackToSchoolModal/>
-    {/* <UserInfoModal/> */}
+    {/* <BackToSchoolModal/> */}
+    {showUserInfoModal && <UserInfoModal onClose={() => setShowUserInfoModal(false)} />}
   <div>
 {/* Info Modal */}
 {isVisible && (

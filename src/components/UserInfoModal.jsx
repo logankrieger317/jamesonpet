@@ -1,68 +1,91 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Box, Typography, Button, TextField, Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import {
+  Modal,
+  Box,
+  Typography,
+  Button,
+  TextField,
+  Container,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  Snackbar,
+  Alert
+} from "@mui/material";
 
 const theme = createTheme();
 
-const UserInfoModal = () => {
-  const [open, setOpen] = useState(false);
+const UserInfoModal = ({ onClose }) => {
+  const [open, setOpen] = useState(true);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   useEffect(() => {
-    const modalClosed = localStorage.getItem("userInfoModalClosed");
-    if (!modalClosed) {
       setOpen(true);
-    }
   }, []);
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.removeItem("userInfoModalClosed");
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
+  
 
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem("userInfoModalClosed", "true");
+    onClose();
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackbar({ ...snackbar, open: false });
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const userData = { name, phone, email };
+    const userData = { name, phone, email };
 
-  try {
-    console.log("Sending data:", userData);
+    try {
+      console.log("Sending data:", userData);
 
-    const response = await fetch("https://jamesoncoatxbackend-f141db66d6c7.herokuapp.com/api/user-info", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+      const response = await fetch("https://jamesoncoatxbackend-f141db66d6c7.herokuapp.com/api/user-info", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
 
-    const responseData = await response.json();
-    console.log("Response:", responseData);
+      const responseData = await response.json();
+      console.log("Response:", responseData);
 
-    if (response.ok) {
-      alert("Information submitted successfully!");
-      handleClose();
-    } else {
-      alert(`Failed to submit information: ${responseData.message}`);
+      if (response.ok) {
+        setSnackbar({
+          open: true,
+          message: "Information submitted successfully!",
+          severity: "success",
+        });
+        handleClose();
+      } else {
+        setSnackbar({
+          open: true,
+          message: `Failed to submit information: ${responseData.message}`,
+          severity: "error",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting information:", error);
+      setSnackbar({
+        open: true,
+        message: "Network error: try again shortly",
+        severity: "error",
+      });
     }
-  } catch (error) {
-    console.error("Error submitting information:", error);
-    alert(`An error occurred: ${error.message}`);
-  }
-};
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -146,6 +169,16 @@ const UserInfoModal = () => {
             </Box>
           </Box>
         </Modal>
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: "100%" }}>
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
       </Container>
     </ThemeProvider>
   );
