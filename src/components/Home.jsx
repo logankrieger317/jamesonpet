@@ -9,15 +9,18 @@ import Footer from "./Footer";
 import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
+// import BookingSpecialModal from "./BookingSpecialModal";
 
 
 
 
+
+const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 const tiers = [
   {
     name: "Full Service Grooming",
     id: "tier-basic",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: bookingUrl,
     price: { starting: "$65", addons: "$100" },
     description: "Everything to fully pamper your pet!",
     features: [
@@ -29,7 +32,7 @@ const tiers = [
   {
     name: "Bath Only",
     id: "tier-essential",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: bookingUrl,
     price: { starting: "$35", addons: "$100" },
     description:
       "A relaxing and enjoyable wash to keep your pet looking their best!",
@@ -42,7 +45,7 @@ const tiers = [
   {
     name: "Walk In",
     id: "tier-growth",
-    href: "https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming",
+    href: bookingUrl,
     price: { starting: "$10", addons: "$60" },
     description: "Face, Feet, and Fanny trims to keep your pet looking sharp!",
     features: [
@@ -60,6 +63,7 @@ const Home = () => {
   const [isBackToSchoolVisible, setIsBackToSchoolVisible]= useState(false)
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
+  const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 
   // Toggle on window load modal show VS    
   useEffect(() => {
@@ -77,7 +81,7 @@ const Home = () => {
 
   const handleEmailClick = (e) => {
     e.preventDefault();
-    window.location.href = "mailto:Jamesongrooming@gmail.com";
+    window.location.href = "mailto:info@jcoatx.com";
   };
 
   const handleCallClick = (e) => {
@@ -103,7 +107,9 @@ const Home = () => {
   return (
     <>
     {/* <BackToSchoolModal/> */}
-    {showUserInfoModal && <UserInfoModal onClose={() => setShowUserInfoModal(false)} />}
+    {/* {showUserInfoModal && <UserInfoModal onClose={() => setShowUserInfoModal(false)} />} */}
+    {/* <BookingSpecialModal /> */}
+    
   <div>
 {/* Info Modal */}
 {isVisible && (
@@ -144,7 +150,7 @@ Submit
 </div>
 <div className="w-full flex flex-col text-center items-center">
 <a
-href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
+href={bookingUrl}
 className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
 >
 Book Now
@@ -156,10 +162,10 @@ Or contact us directly at:
 </p>
 <p className="text-center text-sm lg:text-base">
 <a
-href="mailto:Jamesongrooming@gmail.com"
+href="mailto:info@jcoatx.com"
 onClick={handleEmailClick}
 >
-Email: Jamesongrooming@gmail.com
+Email: info@jcoatx.com
 </a>
 </p>
 <p className="text-center text-sm lg:text-base">
@@ -189,7 +195,6 @@ onClick={() => setIsVisible(true)}
       </div>
 
 
-
         {/* Intro Block  */}
 
         <div className="relative isolate px-6 pt-2 lg:px-8 bg-opacity-100  z-10 m-2 rounded-xl shadow-2xl ">
@@ -214,7 +219,7 @@ onClick={() => setIsVisible(true)}
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
-                  href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
+                  href={bookingUrl}
                   className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Book Now!

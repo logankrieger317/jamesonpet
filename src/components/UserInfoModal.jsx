@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import {
   Modal,
   Box,
@@ -10,27 +13,83 @@ import {
   ThemeProvider,
   createTheme,
   Snackbar,
-  Alert
+  Alert,
+  useMediaQuery
 } from "@mui/material";
 
-const theme = createTheme();
+const theme = createTheme({
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'rgba(0, 0, 0, 0.23)',
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'rgba(0, 0, 0, 0.23)',
+            borderWidth: '1px',
+          },
+        },
+        notchedOutline: {
+          borderColor: 'rgba(0, 0, 0, 0.23)',
+        },
+      },
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          '&.Mui-focused': {
+            color: 'rgba(0, 0, 0, 0.6)',
+          },
+        },
+      },
+    },
+  },
+});
+
+const textFieldSx = {
+    '& .MuiOutlinedInput-root': {
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+      },
+      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+        borderWidth: '1px',
+      },
+    },
+    '& .MuiFormLabel-root.Mui-focused': {
+      color: 'rgba(0, 0, 0, 0.6)',
+    },
+  };
+
+const schema = z.object({
+  name: z.string().min(4, "Please enter your name").regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  email: z.string().email("Invalid email address"),
+});
 
 const UserInfoModal = ({ onClose }) => {
   const [open, setOpen] = useState(true);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
     severity: "success",
   });
 
-  useEffect(() => {
-      setOpen(true);
-  }, []);
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+    },
+  });
+
+  useEffect(() => {
+    setOpen(true);
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
@@ -44,20 +103,16 @@ const UserInfoModal = ({ onClose }) => {
     setSnackbar({ ...snackbar, open: false });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const userData = { name, phone, email };
-
+  const onSubmit = async (data) => {
     try {
-      console.log("Sending data:", userData);
+      console.log("Sending data:", data);
 
       const response = await fetch("https://jamesoncoatxbackend-f141db66d6c7.herokuapp.com/api/user-info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify(data),
       });
 
       const responseData = await response.json();
@@ -103,7 +158,7 @@ const UserInfoModal = ({ onClose }) => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 400,
+              width: isMobile ? '80vw' : '40vw',
               bgcolor: "background.paper",
               boxShadow: 24,
               p: 4,
@@ -114,43 +169,64 @@ const UserInfoModal = ({ onClose }) => {
               Paw-some Raffle Alert!
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Attention all paw-rents! 🐾 Ready for a tail-wagging deal? Enter your info below to enter our raffle for a chance to fetch a whopping <Typography component="span" sx={{ fontWeight: 'bold',  fontSize: 'calc(1em + 2px)' }}>50% off your next full grooming service!</Typography> It's like winning the doggy lottery! Don't let this op-paw-tunity slip through your paws - fill out the form and let's get your furry friend looking fabulous for half the price! Woof-tastic savings await!
+              Attention all paw-rents! 🐾 Ready for a tail-wagging deal? Enter your info below to enter our raffle for a chance to fetch a whopping <Typography component="span" sx={{ fontWeight: 'bold', fontSize: 'calc(1em + 2px)' }}>50% off your next full grooming service!</Typography> It's like winning the doggy lottery! Don't let this op-paw-tunity slip through your paws - fill out the form and let's get your furry friend looking fabulous for half the price! Woof-tastic savings await!
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Name"
-                name="name"
-                autoComplete="name"
-                autoFocus
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="phone"
-                label="Phone"
-                name="phone"
-                autoComplete="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              autoComplete="name"
+              autoFocus
+              error={!!errors.name}
+              helperText={errors.name?.message}
+              sx={textFieldSx}
+            />
+          )}
+        />
+        <Controller
+          name="phone"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              margin="normal"
+              required
+              fullWidth
+              id="phone"
+              label="Phone"
+              autoComplete="tel"
+              error={!!errors.phone}
+              helperText={errors.phone?.message}
+              sx={textFieldSx}
+            />
+          )}
+        />
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              autoComplete="email"
+              error={!!errors.email}
+              helperText={errors.email?.message}
+              sx={textFieldSx}
+            />
+          )}
+        />
               <Button
                 type="submit"
                 fullWidth

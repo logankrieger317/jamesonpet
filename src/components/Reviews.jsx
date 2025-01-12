@@ -1,14 +1,14 @@
 export default function Example() {
   return (
-<>
+    <>
     <div >
 {/* Review One */}
     <section className="isolate overflow-hidden  px-6 lg:px-8 bg-red-300">
       <div className="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-4xl" >
         <div className="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 bg-[radial-gradient(50%_100%_at_top,theme(colors.red.100),white)] opacity-20 lg:left-36 " />
         <div className="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-red-600/10 ring-1 ring-red-50 sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center" />
-        <figure className="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
-          <div className="relative col-span-2 lg:col-start-1 lg:row-start-2">
+                <figure className="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
+                  <div className="relative col-span-2 lg:col-start-1 lg:row-start-2">
             <svg
               viewBox="0 0 162 128"
               fill="none"
@@ -21,26 +21,26 @@ export default function Example() {
               />
               <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x={86} />
             </svg>
-            <blockquote className="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                    <blockquote className="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
               <p>
                 Hailey has the magic touch with my quirky, little rescue dog. She was able to give him the full bath treatment, including nails, teeth and anal glands. I was amazed! She also fit my smelly dog in very quickly for his much needed cleaning. I highly recommend her.
               </p>
-            </blockquote>
-          </div>
-          <div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
-            <img
-              className="rounded-xl bg-red-50 lg:rounded-3xl"
+                    </blockquote>
+                  </div>
+                  <div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
+                    <img
+                      className="rounded-xl bg-red-50 lg:rounded-3xl"
               src="https://s3-media0.fl.yelpcdn.com/photo/6BkSS0lRjHQr7YPGBZd9Bg/60s.jpg"
-              alt=""
-            />
-          </div>
-          <figcaption className="text-base lg:col-start-1 lg:row-start-3">
+                      alt=""
+                    />
+                  </div>
+                  <figcaption className="text-base lg:col-start-1 lg:row-start-3">
             <div className="font-semibold text-gray-900">Eileen C.</div>
             <div className="mt-1 text-gray-500">Sep 19,2023</div>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
 
 
 {/* Review 2 */}
@@ -82,8 +82,7 @@ export default function Example() {
           </figcaption>
         </figure>
       </div>
-    </section>
-</div>
-</>
-  )
+    </section></div>
+    </>
+  );
 }

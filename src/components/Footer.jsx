@@ -1,12 +1,12 @@
 
 const navigation = {
   Promotions: [
-    { name: 'Sales', href: 'Sales' },
+    { name: 'Sales', href: '/Sales' },
     
   ],
   support: [
     { name: 'Help', href: 'Help' },
-    { name: 'FAQ', href: 'FAQ' },
+    { name: 'FAQ', href: '/FAQ' },
     { name: 'Development Team', href: 'DevTeam' },
     
   ],
@@ -152,7 +152,7 @@ export default function Footer() {
             ))}
           </div>
           <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
-            &copy; 2023 Jameson & Company. All rights reserved.
+            &copy; 2024 Jameson & Company. All rights reserved.
           </p>
         </div>
       </div>
