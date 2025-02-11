@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
+import OOOModal from "./OOOModal";
 // import BookingSpecialModal from "./BookingSpecialModal";
 
 
@@ -109,6 +110,7 @@ const Home = () => {
     {/* <BackToSchoolModal/> */}
     {/* {showUserInfoModal && <UserInfoModal onClose={() => setShowUserInfoModal(false)} />} */}
     {/* <BookingSpecialModal /> */}
+    <OOOModal />
     
   <div>
 {/* Info Modal */}

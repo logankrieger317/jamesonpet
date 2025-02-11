@@ -13,7 +13,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
   { name: 'Book Now', href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming' },
-  // { name: 'Blog', href: 'https://jcoatx.com/BlogPage' }
+  { name: 'Blog', href: '/blog' }
 ];
 
 export default function Header(): JSX.Element {

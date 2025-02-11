@@ -22,8 +22,8 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
@@ -38,8 +38,8 @@ function App() {
         <Route path="/addons" element={<Addons />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/error" element={<Error />} />
-        <Route path="/BlogPage" element={<BlogPage />} />
         {/* Catch-all route to handle undefined paths */}
         <Route path="*" element={<Error />} />
       </Routes>
