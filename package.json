@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "STAGING=false vite build",
-    "build:staging": "STAGING=true vite build",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -42,7 +41,7 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "sharp": "^0.33.5",
+    "sharp": "^0.33.2",
     "vite": "^5.0.0"
   }
 }
